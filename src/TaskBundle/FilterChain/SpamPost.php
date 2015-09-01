@@ -9,9 +9,11 @@ class SpamPost extends FilterChain
 {   
     public function _proceed($job)
     {
-        // Do what is required for Spam posts (Do Nothing)
+        // I do what is required for Spam posts (Do not create it and notify by an output message)
         if ( $job->getStatus() !== 2 ) {
             $this->setNext(new ValidPost());
         }        
-    }
+        $msg = "Sorry, your email account has been suspended!"  ;
+        return array('job' => $job, 'msg' => $msg);
+}
 }

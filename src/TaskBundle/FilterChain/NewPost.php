@@ -18,9 +18,11 @@ class NewPost extends FilterChain
     
     public function _proceed($job)
     {
-        // Do what is required for new posts (Save and Send mails)
+        // I do what is required for new posts (Send mail to user and job board moderator)
         if ( $job->getStatus() == 0 ) {            
             $this->eventDispatcher->dispatch(JobEvents::JOB_CREATED, new JobEvent($job));
+            $msg = "Thanks, your job Post has been created and in moderation review"  ;
+            return array('job' => $job, 'msg' => $msg);
         }
     }
 }

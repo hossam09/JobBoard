@@ -51,9 +51,9 @@ class JobController
             );
         
         $job = $this->jobRepository->setJobPost($postInputs);
-        $this->filterChainRequest->proceed($job);
-        
-        return $this->viewMsg("Thanks. your form has submitted "); 
+        $result = $this->filterChainRequest->proceed($job);
+        $this->jobRepository->insertPost($result['job']);
+        return $this->viewMsg($result['msg']); 
     }
     
     public function approvePost($id)

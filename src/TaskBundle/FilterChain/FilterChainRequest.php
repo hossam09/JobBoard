@@ -10,6 +10,6 @@ class FilterChainRequest
     public function proceed($job) 
     {
         $postChain = new SpamPost();
-        $postChain->proceed($job);
+        return $postChain->proceed($job);
     }
 }
