@@ -3,6 +3,7 @@ namespace TaskBundle\Listener;
 
 use TaskBundle\Mailer\JobBoardMailer;
 use TaskBundle\Event\JobEvent;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class JobEmailListener
 {
@@ -12,17 +13,18 @@ class JobEmailListener
     protected $jobBoardMailer;
 
     /**
-     * @var RouterInterface
+     * @var EngineInterface
      */
     protected $templating;
 
     /**
      * @param JobBoardMailer    $jobBoardMailer
-     * @param RouterInterface   $router
+     * @param EngineInterface   $templating
      */
-    public function __construct(JobBoardMailer $jobBoardMailer)
+    public function __construct(JobBoardMailer $jobBoardMailer, EngineInterface $templating)
     {
         $this->jobBoardMailer = $jobBoardMailer;
+        $this->jobBoardMailer = $templating;
     }
 
     /**
@@ -34,17 +36,21 @@ class JobEmailListener
         // Notification message to User
         $this->jobBoardMailer->sendMessage(
             sprintf('The job %s has been Sent', $job->getTitle()),
-            'no-reply@job-board.com',
+            'no-reply@hossamyoussef.com',
             $job->getEmail(),
-            'Test'
+            $this->templating->renderResponse('Email/user.html.twig',
+                array('job' => $job)
+                    )
         );
         
         // Notification message to Job-Board Moderator
         $this->jobBoardMailer->sendMessage(
             sprintf('The job %s has been created', $job->getTitle()),
-            'no-reply@job-board.com',
-            'admin@job-board.com',
-            'Test'
+            'no-reply@hossamyoussef.com',
+            'admin@hossamyoussef.com',
+            $this->templating->renderResponse('Email/moderator.html.twig',
+                array('job' => $job)
+                    )
         );
     }
 }
