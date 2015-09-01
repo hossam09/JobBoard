@@ -1,10 +1,24 @@
 <?php
 
 namespace TaskBundle\FilterChain;
+use TaskBundle\Repository\JobRepository;
 
 abstract class FilterChain 
 {
-    private $next =null;
+    private $next = null;
+    
+    protected $jobRepository;
+        
+    public function setJobRepository(JobRepository $jobRepository)
+    {
+        $this->jobRepository = $jobRepository;
+        return $this->jobRepository;
+    }
+
+    public function getJobRepository()
+    {
+        return $this->jobRepository;
+    }
     
     public function setNext(FilterChain $filterChain) 
     {

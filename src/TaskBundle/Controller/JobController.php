@@ -51,30 +51,24 @@ class JobController
             );
         
         $job = $this->jobRepository->setJobPost($postInputs);
+        $this->filterChainRequest->proceed($job);
         
-        if ( ! $this->filterChainRequest->proceed($job) ) {
-            return $this->viewMsg(" Sorry, You can not add any more job posts, Your account has been suspended!"); 
-        }
-            
-        $this->jobRepository->insertPost($job);
-
-        return $this->viewMsg(" Thanks, Your post has been created!"); 
-        
+        return $this->viewMsg("Thanks. your form has submitted "); 
     }
     
     public function approvePost($id)
     {
-        $response = $this->jobRepository->approvePost($id);
+        $result = $this->jobRepository->approvePost($id);
         
-        return $this->viewMsg($response);
+        return $this->viewMsg($result);
 
     }
 
     public function rejectPost($id)
     {
-        $response = $this->jobRepository->rejectPost($id);
+        $result = $this->jobRepository->rejectPost($id);
         
-        return $this->viewMsg($response);
+        return $this->viewMsg($result);
 
     }
 

@@ -18,10 +18,9 @@ class NewPost extends FilterChain
     
     public function _proceed($job)
     {
-        if ( $job->getStatus() == 0 ) {
-            // Insert request
+        // Do what is required for new posts (Save and Send mails)
+        if ( $job->getStatus() == 0 ) {            
             $this->eventDispatcher->dispatch(JobEvents::JOB_CREATED, new JobEvent($job));
-            return "Thanks, Your job post has been sent, it will be in moderation step!";
         }
     }
 }

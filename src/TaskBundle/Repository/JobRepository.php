@@ -40,9 +40,8 @@ class JobRepository extends EntityRepository
         return $status;
     }
 
-    public function insertPost($job) 
+    public function insertPost(Job $job) 
     {            
-        $job = new Job();
         $this->_em->persist($job);
         $this->_em->flush();
     }

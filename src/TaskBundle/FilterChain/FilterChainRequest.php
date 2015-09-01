@@ -6,6 +6,7 @@ use TaskBundle\FilterChain\SpamPost;
 
 class FilterChainRequest 
 {
+
     public function proceed($job) 
     {
         $postChain = new SpamPost();
