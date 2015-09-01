@@ -17,7 +17,7 @@ services:
         arguments:   
             - @templating
             - @request
-            - @user_post_request
+            - @filter_chain_request
             - @job_repository
 
     job_board.mailer:

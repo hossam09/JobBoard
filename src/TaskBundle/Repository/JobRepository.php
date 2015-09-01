@@ -30,13 +30,13 @@ class JobRepository extends EntityRepository
 
     public function getJobPostStatus($email) 
     {   
+        $status = 0;
         $job = $this->findOneBy(array("email" => $email));
         
-        if ( ! $job ) {
-           $status = 0; 
+        if ( $job ) {
+            $status = $job->getStatus();
         }
-        
-        $status = $job->getStatus();
+            
         return $status;
     }
 
