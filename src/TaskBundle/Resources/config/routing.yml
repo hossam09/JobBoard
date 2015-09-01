@@ -4,9 +4,9 @@ task_job:
 
 about:
     path:     /about
-    defaults: { _controller: "TaskBundle:Home:about" }
+    defaults: { _controller: task.home_controller:about }
 
 help:
     path:     /help
-    defaults: { _controller: "TaskBundle:Home:help" }
+    defaults: { _controller: task.home_controller:help }
     

@@ -20,15 +20,15 @@ class HomeController
     }
            
     // About Page contains the most important points and diagrams
-    public function aboutAction()
+    public function about()
     {
-        return $this->templating->renderResponse('TaskBundle:Home:about.html.twig');
+        return $this->templating->renderResponse('TaskBundle:Help:about.html.twig');
     }
     
     // Help Apigen a documentation tool for all classes
-    public function helpAction()
+    public function help()
     {
-        return $this->templating->renderResponse('TaskBundle:Home:help.html.twig');
+        return $this->templating->renderResponse('TaskBundle:Help:classes.html.twig');
     }
   
 }

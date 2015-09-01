@@ -20,7 +20,7 @@ services:
             - @filter_chain_request
             - @job_repository
 
-    task.job_home:
+    task.home_controller:
         class: TaskBundle\Controller\HomeController
         arguments:   
             - @templating
