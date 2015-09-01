@@ -11,7 +11,7 @@ services:
 
     filter_chain_request:
         class: TaskBundle\FilterChain\FilterChainRequest
-            
+           
     task.job_controller:
         class: TaskBundle\Controller\JobController
         arguments:   
