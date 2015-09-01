@@ -5,24 +5,24 @@ namespace TaskBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Request;
 use TaskBundle\Repository\JobRepository;
-use TaskBundle\UserPost\UserPostRequest;
+use TaskBundle\FilterChain\FilterChainRequest;
 
 class JobController
 {
     private $templating;
     private $jobRepository;
-    private $userPostRequest;
+    private $filterChainRequest;
     private $request;
 
     public function __construct(EngineInterface $templating,
             Request $request,
-            UserPostRequest $userPostRequest,
+            FilterChainRequest $filterChainRequest,
             JobRepository $jobRepository
             )
     {
         $this->templating = $templating;
         $this->request = $request;
-        $this->userPostRequest = $userPostRequest;
+        $this->filterChainRequest = $filterChainRequest;
         $this->jobRepository = $jobRepository;
     }
     
@@ -52,9 +52,13 @@ class JobController
         
         $job = $this->jobRepository->setJobPost($postInputs);
         
-        $response = $this->userPostRequest->proceed($job);
-                
-        return $this->viewMsg($response);
+        if ( ! $this->filterChainRequest->proceed($job) ) {
+            return $this->viewMsg(" Sorry, You can not add any more job posts, Your account has been suspended!"); 
+        }
+            
+        $this->jobRepository->insertPost($job);
+
+        return $this->viewMsg(" Thanks, Your post has been created!"); 
         
     }
     

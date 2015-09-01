@@ -1,13 +1,13 @@
 <?php
 
-namespace TaskBundle\UserPost;
+namespace TaskBundle\FilterChain;
 
-use TaskBundle\UserPost\UserPostChain;
+use TaskBundle\FilterChain\FilterChain;
 use TaskBundle\JobEvents;
 use TaskBundle\Event\JobEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
-class NewPost extends UserPostChain
+class NewPost extends FilterChain
 {
     private $eventDispatcher;
     

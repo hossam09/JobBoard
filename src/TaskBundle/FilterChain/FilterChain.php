@@ -1,14 +1,14 @@
 <?php
 
-namespace TaskBundle\UserPost;
+namespace TaskBundle\FilterChain;
 
-abstract class UserPostChain 
+abstract class FilterChain 
 {
     private $next =null;
     
-    public function setNext(UserPostChain $userPostChain) 
+    public function setNext(FilterChain $filterChain) 
     {
-        $this->next = $userPostChain;
+        $this->next = $filterChain;
         return $this->next;
     }
     

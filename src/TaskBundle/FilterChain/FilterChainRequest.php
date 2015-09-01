@@ -1,10 +1,10 @@
 <?php
 
-namespace TaskBundle\UserPost;
+namespace TaskBundle\FilterChain;
 
-use TaskBundle\UserPost\SpamPost;
+use TaskBundle\FilterChain\SpamPost;
 
-class UserPostRequest 
+class FilterChainRequest 
 {
     public function proceed($job) 
     {

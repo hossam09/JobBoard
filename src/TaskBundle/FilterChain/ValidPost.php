@@ -1,11 +1,11 @@
 <?php
 
-namespace TaskBundle\UserPost;
+namespace TaskBundle\FilterChain;
 
-use TaskBundle\UserPost\UserPostChain;
-use TaskBundle\UserPost\NewPost;
+use TaskBundle\FilterChain\FilterChain;
+use TaskBundle\FilterChain\NewPost;
 
-class ValidPost extends UserPostChain
+class ValidPost extends FilterChain
 {
     public function _proceed($job)
     {

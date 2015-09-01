@@ -9,8 +9,8 @@ services:
     request:
         class: Symfony\Component\HttpFoundation\Request
 
-    user_post_request:
-        class: TaskBundle\UserPost\UserPostRequest
+    filter_chain_request:
+        class: TaskBundle\FilterChain\FilterChainRequest
             
     task.job_controller:
         class: TaskBundle\Controller\JobController
