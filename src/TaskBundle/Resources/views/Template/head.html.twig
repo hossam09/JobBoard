@@ -1,0 +1,19 @@
+<meta charset="{{ _charset }}" />
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<title> Job Board Application   </title>
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+{% stylesheets
+    '@TaskBundle/Resources/public/css/bootstrap.min.css'
+    '@TaskBundle/Resources/public/css/template.css'
+    output='css/task.css'
+%}
+    <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+{% javascripts
+    '@TaskBundle/Resources/public/js/jquery.min.js'
+    '@TaskBundle/Resources/public/js/bootstrap.min.js'
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %} 

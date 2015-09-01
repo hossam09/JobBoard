@@ -1,0 +1,10 @@
+{% if msg is defined %}           
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4> {{ msg }} </h4>
+            </div>
+        </div>
+    </div>
+{% endif %}
