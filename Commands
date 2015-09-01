@@ -1,0 +1,81 @@
+composer require doctrine/doctrine-bundle
+
+symfony new ProjectName
+
+cd /var/www/ProjectName
+
+sudo setfacl -R -m u:hossam:rwX -m u:`whoami`:rwX app/cache app/
+rm -rf app/cache/*
+php app/console cache:clear
+
+php app/console cache:clear --env=dev
+php app/console cache:clear --env=prod
+
+php app/console generate:bundle
+
+php app/console doctrine:database:create
+
+php app/console doctrine:schema:validate
+
+php app/console doctrine:generate:entities TaskBundle --no-backup
+OR
+php app/console doctrine:generate:entities TaskBundle/Entity/Product --no-backup
+
+php app/console doctrine:schema:update --force
+
+php app/console doctrine:generate:crud
+
+php app/console generate:doctrine:crud --overwrite
+
+apigen generate --source src --destination api
+
+php app/console assets:install web
+---------------------------------------------------------
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="product")
+ */
+class Product
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $name;
+
+------------------------------------------------------------
+class Category
+{
+    // ...
+
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    protected $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
+
+----------------------
+class Product
+{
+    // ...
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
+----------------------------------------------------------------------

@@ -1,0 +1,21 @@
+job:
+    path:     /
+    defaults: { _controller: task.job_controller:index }
+
+job_new:
+    path:     /new
+    defaults: { _controller: task.job_controller:newPost }
+
+job_create:
+    path:     /create
+    defaults: { _controller: task.job_controller:createPost }
+    methods:  POST
+
+job_approve:
+    path:     /{id}/approve
+    defaults: { _controller: task.job_controller:approvePost }
+
+job_reject:
+    path:     /{id}/reject
+    defaults: { _controller: task.job_controller:rejectPost }
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p>
+            <h2>New Job Post</h2>
+            There is a new job post has been submitted and need your action: <br/>
+            Created By: <strong>{{ email }}</strong> <br/>
+            
+            Job Title:  <strong>{{ title }}</strong> <br/>
+          
+            Job Description: <strong>{{ description }}</strong> <br/>
+        </p>
+        <hr />
+        <p>
+            <h2>Required Actions:</h2>
+            <strong>Accept:</strong> <a href="{{ url("job_posts/id/approve") }}"> Publich </a>
+    
+            <br/>
+    
+            <strong>Reject:</strong> <a href="{{ url("job_posts/id/reject") }}">Mark as Spam</a>
+        </p>
+
+        <hr/>
+        <p>           
+           This is an automatic message generated from Job-Board system!
+        </p>
+    </body>
+</html>

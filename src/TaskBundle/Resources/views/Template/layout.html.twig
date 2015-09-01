@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    
+    {% block head %}
+        {{ include('TaskBundle:Template:head.html.twig') }} 
+    {% endblock %}
+    
+    {% block body %}
+        <div id="wrap">
+            {% block navigation %}
+                {{ include('TaskBundle:Template:navbar.html.twig') }} 
+            {% endblock %}  
+            <div class="container">
+                {{ include('TaskBundle:Template:msg.html.twig') }} 
+                {% block content %}
+                {% endblock %}
+             </div>
+        </div>
+             
+        <div id="footer">
+            {% block footer %}
+                {{ include('TaskBundle:Template:footer.html.twig') }} 
+            {% endblock %}
+        </div>
+    {% endblock %}
+    
+</html>

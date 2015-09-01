@@ -1,0 +1,46 @@
+{% extends 'TaskBundle:Template:layout.html.twig' %}
+
+{% block content -%}
+    <div class="col-lg-12">
+        <h4 class="list-group-item-heading">
+            Hello!... It was very interested challenge :) 
+        </h4>        
+        <a class="list-group-item">
+            <p class="list-group-item-text">
+                <h4> Tools: </h4>
+                <ul> 
+                    <li>   Symfony 2, MVC Framework. </li> 
+                    <li>  Mysql Database: using Mysql Workbench. </li> 
+                    <li>  PHPUnit Test Framework. </li> 
+                    <li>  Bootstrap3 and Symfony2 Assetic Manager *Extra Point. </li> 
+                    <li>  Documentation: Apigen. *Extra-Point. </li> 
+                </ul>
+                <hr />
+                <h4>  Skills: </h4>
+                <ul> 
+                    <li>  PHP5, OOP, MVC and SOLID Principles --> I applied Strategy Design Pattern to implement the main point of the task. </li> 
+                    <li>  Symfony2 Framework, Doctrine2 and ORM2. </li> 
+                    <li>  JSON Interface. *Extra-Point </li> 
+                    <li>  Unit and Functional Test  </li> 
+                    <li>  Pagination. *Extra-Point </li> 
+                    <li>  Classess Documentation & Hand-writing Diagram  </li> 
+                </ul>
+                <hr />
+                <h4> Next Updates: Due to the time-factor & BackLog (Tasks list) priorities. *Extra-Points:</h4>
+                <ul>                  
+                    <li>  Elastic Search (Model & Controller) </li> 
+                    <li>  Assetic Filter (Front-End) </li> 
+                </ul>
+                <hr />
+                <h4>Business Logic: (Brainstorming  &  Hand-writing) Snapshot</h4>
+                <center>
+                    {% image '@TaskBundle/Resources/public/images/snapshot.jpg' %}
+                        <img src="{{ asset_url }}" alt="Challenge Diagram" />
+                    {% endimage %}
+                </center>
+                <hr />
+                <h5>Finally, I am very Active, Creative, Self motivated, Fast learner and very Interested in working at FoodPanda Group, hope to hear soon from you. </h5>
+            </p>
+        </a>
+    </div>
+{% endblock %}
