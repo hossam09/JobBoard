@@ -1,9 +1,9 @@
 <?php
 namespace TaskBundle\Listener;
 
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use TaskBundle\Mailer\JobBoardMailer;
 use TaskBundle\Event\JobEvent;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class JobEmailListener
 {
@@ -24,7 +24,7 @@ class JobEmailListener
     public function __construct(JobBoardMailer $jobBoardMailer, EngineInterface $templating)
     {
         $this->jobBoardMailer = $jobBoardMailer;
-        $this->jobBoardMailer = $templating;
+        $this->templating = $templating;
     }
 
     /**
@@ -51,6 +51,6 @@ class JobEmailListener
             $this->templating->renderResponse('Email/moderator.html.twig',
                 array('job' => $job)
                     )
-        );
+        ); 
     }
 }

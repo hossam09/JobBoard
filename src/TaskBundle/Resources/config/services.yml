@@ -20,6 +20,11 @@ services:
             - @filter_chain_request
             - @job_repository
 
+    task.job_home:
+        class: TaskBundle\Controller\HomeController
+        arguments:   
+            - @templating
+
     job_board.mailer:
         class: TaskBundle\Mailer\JobBoardMailer
         arguments:   
