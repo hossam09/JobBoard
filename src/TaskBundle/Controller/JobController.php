@@ -52,8 +52,9 @@ class JobController
         
         $job = $this->jobRepository->setJobPost($postInputs);
         $result = $this->filterChainRequest->proceed($job);
+        
         if ( ! $result['is_spam'] ) {
-        $this->jobRepository->insertPost($result['job']);
+            $this->jobRepository->insertPost($result['job']);
         }
         
         return $this->viewMsg($result['msg']); 
