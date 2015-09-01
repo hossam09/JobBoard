@@ -22,7 +22,10 @@ class NewPost extends FilterChain
         if ( $job->getStatus() == 0 ) {            
             $this->eventDispatcher->dispatch(JobEvents::JOB_CREATED, new JobEvent($job));
             $msg = "Thanks, your job Post has been created and in moderation review"  ;
-            return array('job' => $job, 'msg' => $msg);
+            return array('job' => $job,
+                'msg' => $msg,
+                'is_spam' => false
+                    );
         }
     }
 }

@@ -14,6 +14,6 @@ class SpamPost extends FilterChain
             $this->setNext(new ValidPost());
         }        
         $msg = "Sorry, your email account has been suspended!"  ;
-        return array('job' => $job, 'msg' => $msg);
+        return array('msg' => $msg, 'is_spam' => true);
 }
 }

@@ -14,7 +14,7 @@ class JobEmailListener
     /**
      * @var RouterInterface
      */
-    protected $router;
+    protected $templating;
 
     /**
      * @param JobBoardMailer    $jobBoardMailer

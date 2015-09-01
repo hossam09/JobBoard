@@ -11,12 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Job
 {  
-    static public $statusEnum = array(
-        0 => 'Hold',
-        1 => 'Approved',
-        2 => 'Spam'
+    const STATUS_NEW = 0;
+    const STATUS_VALID = 1;
+    const STATUS_SPAM = 2;
+    
+    static public $typeStatus = array(
+        self::STATUS_NEW => 'New Post',
+        self::STATUS_VALID => 'Valid Post',
+        self::STATUS_SPAM => 'Spam Post',
     );
-
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -40,7 +43,7 @@ class Job
     protected $email;
     
     /**
-     * @var string
+     * @var integer
      *
      * @ORM\Column(type="integer")
      */
