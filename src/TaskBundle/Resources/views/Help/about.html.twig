@@ -1,46 +1,50 @@
 {% extends 'TaskBundle:Template:layout.html.twig' %}
 
 {% block content -%}
-    <div class="col-lg-12">
-        <h4 class="list-group-item-heading">
-            Hello!... It was very interested challenge :) 
-        </h4>        
-        <a class="list-group-item">
-            <p class="list-group-item-text">
-                <h4> Tools: </h4>
+    <div class="col-lg-4">     
+        <div class="list-group-item">
+            <div class="list-group-item-text">
+                <h4> Main Tools: </h4>
                 <ul> 
-                    <li>   Symfony 2, MVC Framework. </li> 
+                    <li>  Symfony 2, (Install composer.json, It contains SF2.7 Standard edtion dependencies). </li> 
                     <li>  Mysql Database: using Mysql Workbench. </li> 
                     <li>  PHPUnit Test Framework. </li> 
                     <li>  Bootstrap3 and Symfony2 Assetic Manager *Extra Point. </li> 
                     <li>  Documentation: Apigen. *Extra-Point. </li> 
                 </ul>
                 <hr />
-                <h4>  Skills: </h4>
+                <h4>  Main Skills: </h4>
                 <ul> 
-                    <li>  PHP5, OOP, MVC and SOLID Principles --> I applied Strategy Design Pattern to implement the main point of the task. </li> 
+                    <li>  PHP5, OOP, MVC and SOLID Principles. </li> 
                     <li>  Symfony2 Framework, Doctrine2 and ORM2. </li> 
-                    <li>  JSON Interface. *Extra-Point </li> 
+                    <li>  Dependency Injection, Chain of Responsibilities and other Design Patterns. </li> 
                     <li>  Unit and Functional Test  </li> 
-                    <li>  Pagination. *Extra-Point </li> 
                     <li>  Classess Documentation & Hand-writing Diagram  </li> 
                 </ul>
                 <hr />
-                <h4> Next Updates: Due to the time-factor & BackLog (Tasks list) priorities. *Extra-Points:</h4>
+                <h4> Possible Next Updates:</h4>
                 <ul>                  
-                    <li>  Elastic Search (Model & Controller) </li> 
-                    <li>  Assetic Filter (Front-End) </li> 
-                </ul>
-                <hr />
+                    <li>  Sign in Auth. </li> 
+                    <li>  User table separated with the HR Manager details </li> 
+                    <li>  Subscribe and Unsubscribe option </li> 
+                    <li>  Memcached, Elastic Search  </li> 
+                </ul>                
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="list-group-item">
+            <div class="list-group-item-text">
                 <h4>Business Logic: (Brainstorming  &  Hand-writing) Snapshot</h4>
                 <center>
-                    {% image '@TaskBundle/Resources/public/images/snapshot.jpg' %}
+                    {% image '@TaskBundle/Resources/public/images/diagram.jpg' %}
                         <img src="{{ asset_url }}" alt="Challenge Diagram" />
                     {% endimage %}
                 </center>
-                <hr />
-                <h5>Finally, I am very Active, Creative, Self motivated, Fast learner and very Interested in working at FoodPanda Group, hope to hear soon from you. </h5>
-            </p>
-        </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <h5>Finally, I am very Active, Creative, Self motivated, Fast learner and very Interested in working at HolidayPirates Development Team, hope to hear soon from you. </h5>
     </div>
 {% endblock %}
